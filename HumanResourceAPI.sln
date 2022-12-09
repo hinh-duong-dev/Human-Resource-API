@@ -5,13 +5,17 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HumanResourceAPI", "HumanResourceAPI\HumanResourceAPI.csproj", "{16602018-057E-4E9D-830B-BA40E84896D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{97D94409-46B9-48AB-A07B-9E06ABEE736B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{97D94409-46B9-48AB-A07B-9E06ABEE736B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{4EC6C4B8-5384-4A39-B3A3-E1E7380A9A21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "LoggerService\LoggerService.csproj", "{4EC6C4B8-5384-4A39-B3A3-E1E7380A9A21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanResourceAPI.UnitTest", "HumanResourceAPI.UnitTest\HumanResourceAPI.UnitTest.csproj", "{E0E6E8B7-3BB4-42F1-99D1-96DE7878C6EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HumanResourceAPI.UnitTest", "HumanResourceAPI.UnitTest\HumanResourceAPI.UnitTest.csproj", "{E0E6E8B7-3BB4-42F1-99D1-96DE7878C6EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HumanResourceAPI.Infrastructure", "HumanResourceAPI.Infrastructure\HumanResourceAPI.Infrastructure.csproj", "{0432792C-4144-4D42-B036-CB8B231DA246}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HumanResourceAPI.Infrastructure", "HumanResourceAPI.Infrastructure\HumanResourceAPI.Infrastructure.csproj", "{0432792C-4144-4D42-B036-CB8B231DA246}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{744933CC-45DC-4196-8138-DB6604F65330}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DBE8F5A5-F425-4396-93ED-CEE0E1838708}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +46,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{16602018-057E-4E9D-830B-BA40E84896D2} = {744933CC-45DC-4196-8138-DB6604F65330}
+		{97D94409-46B9-48AB-A07B-9E06ABEE736B} = {744933CC-45DC-4196-8138-DB6604F65330}
+		{4EC6C4B8-5384-4A39-B3A3-E1E7380A9A21} = {744933CC-45DC-4196-8138-DB6604F65330}
+		{E0E6E8B7-3BB4-42F1-99D1-96DE7878C6EC} = {DBE8F5A5-F425-4396-93ED-CEE0E1838708}
+		{0432792C-4144-4D42-B036-CB8B231DA246} = {744933CC-45DC-4196-8138-DB6604F65330}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {81767C15-1468-4796-970D-7587E1672E58}
