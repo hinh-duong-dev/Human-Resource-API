@@ -1,4 +1,5 @@
 using HumanResourceAPI.Extensions;
+using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,15 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
+app.UseCors("CorsPolicy");
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions 
+{
+   ForwardedHeaders = ForwardedHeaders.All
+});
 
 app.UseAuthorization();
 
