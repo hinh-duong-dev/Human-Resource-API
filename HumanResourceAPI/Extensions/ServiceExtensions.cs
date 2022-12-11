@@ -1,4 +1,7 @@
-﻿namespace HumanResourceAPI.Extensions
+﻿using HumanResourceAPI.Infrastructure;
+using LoggerService;
+
+namespace HumanResourceAPI.Extensions
 {
     public static class ServiceExtensions
     {
@@ -18,5 +21,8 @@
             {
                 
             });
+
+        public static void ConfigureLoggingService(this IServiceCollection services) =>
+            services.AddScoped<ILoggerManager, LoggerManager>();
     }
 }

@@ -1,0 +1,174 @@
+2022-12-11 17:11:24.5667 Info Message Template Auto Format enabled
+2022-12-11 17:11:24.7937 Debug ScanAssembly('NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-12-11 17:11:25.9449 Debug Setting 'NLog.Targets.ConsoleTarget.name' to 'logfile'
+2022-12-11 17:11:25.9623 Debug Setting 'NLog.Targets.ConsoleTarget.fileName' to 'D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\internal_logs\logs\${shortdate}_logfile.txt'
+2022-12-11 17:11:26.0173 Warn Error has been raised. Exception: NLog.NLogConfigurationException: 'ConsoleTarget' cannot assign unknown property 'fileName'='D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\internal_logs\logs\${shortdate}_logfile.txt'
+   at NLog.Internal.PropertyHelper.SetPropertyFromString(Object targetObject, String propertyName, String stringValue, ConfigurationItemFactory configurationItemFactory)
+   at NLog.Config.LoggingConfigurationParser.SetPropertyValueFromString(Object targetObject, String propertyName, String propertyValue, ValidatedConfigurationElement element)
+2022-12-11 17:11:26.2639 Debug Setting 'NLog.Targets.ConsoleTarget.layout' to '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2022-12-11 17:11:26.2869 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:11:26.2942 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-12-11 17:11:26.2942 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:11:26.2942 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-12-11 17:11:26.2942 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:11:26.2942 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2022-12-11 17:11:26.3093 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:11:26.3093 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-12-11 17:11:26.3093 Debug Adding target ConsoleTarget(Name=logfile)
+2022-12-11 17:11:26.3093 Info Registered target ConsoleTarget(Name=logfile)
+2022-12-11 17:11:26.3258 Trace ParseRulesElement
+2022-12-11 17:11:26.3686 Debug Watching file-filter 'nlog.config' in directory: D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI
+2022-12-11 17:11:26.3686 Debug --- NLog configuration dump ---
+2022-12-11 17:11:26.3866 Debug Targets:
+2022-12-11 17:11:26.3866 Debug ConsoleTarget(Name=logfile)
+2022-12-11 17:11:26.3866 Debug Rules:
+2022-12-11 17:11:26.3866 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2022-12-11 17:11:26.3866 Debug --- End of NLog configuration dump ---
+2022-12-11 17:11:26.3866 Trace FindReachableObject<System.Object>:
+2022-12-11 17:11:26.3998 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2022-12-11 17:11:26.3998 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic
+2022-12-11 17:11:26.3998 Trace  Scanning ConsoleTarget 'ConsoleTarget(Name=logfile)'
+2022-12-11 17:11:26.3998 Trace   Scanning Property Layout '${longdate}|${level:uppercase=true}|${logger}|${message}' NLog.Layouts
+2022-12-11 17:11:26.3998 Trace   Scanning SimpleLayout '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2022-12-11 17:11:26.3998 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-12-11 17:11:26.3998 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-12-11 17:11:26.3998 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:11:26.4193 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-12-11 17:11:26.4193 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:11:26.4193 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2022-12-11 17:11:26.4193 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:11:26.4193 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-12-11 17:11:26.4193 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic
+2022-12-11 17:11:26.4193 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic
+2022-12-11 17:11:26.4458 Info Validating config: TargetNames=logfile, ConfigItems=10, FilePath=D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\nlog.config
+2022-12-11 17:11:26.4458 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2022-12-11 17:11:26.4650 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2022-12-11 17:11:26.4650 Trace Initializing Layout Renderer: ${message}
+2022-12-11 17:11:26.4650 Trace Initializing Layout Renderer: ${literal}
+2022-12-11 17:11:26.4650 Trace Initializing Layout Renderer: ${loggername}
+2022-12-11 17:11:26.4650 Trace Initializing Layout Renderer: ${literal}
+2022-12-11 17:11:26.5045 Trace Initializing Layout Renderer: ${level}
+2022-12-11 17:11:26.5095 Trace Initializing Layout Renderer: ${literal}
+2022-12-11 17:11:26.5095 Trace Initializing Layout Renderer: ${longdate}
+2022-12-11 17:11:26.5095 Trace Initializing ${longdate}|${level:uppercase=true}|${logger}|${message}
+2022-12-11 17:11:26.5259 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:11:26.5259 Trace Scanning SimpleLayout '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2022-12-11 17:11:26.5259 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-12-11 17:11:26.5259 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-12-11 17:11:26.5440 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:11:26.5440 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-12-11 17:11:26.5440 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:11:26.5440 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2022-12-11 17:11:26.5558 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:11:26.5558 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-12-11 17:11:26.5729 Trace Initializing ConsoleTarget(Name=logfile)
+2022-12-11 17:11:26.5729 Trace FindReachableObject<NLog.Layouts.Layout>:
+2022-12-11 17:11:26.5729 Trace Scanning ConsoleTarget 'ConsoleTarget(Name=logfile)'
+2022-12-11 17:11:26.5729 Trace  Scanning Property Layout '${longdate}|${level:uppercase=true}|${logger}|${message}' NLog.Layouts
+2022-12-11 17:11:26.5870 Trace  Scanning SimpleLayout '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2022-12-11 17:11:26.5870 Trace ConsoleTarget(Name=logfile) has 1 layouts
+2022-12-11 17:11:56.1128 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2022-12-11 17:11:56.1128 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2022-12-11 17:11:56.1128 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2022-12-11 17:11:56.1128 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2022-12-11 17:11:56.1128 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2022-12-11 17:11:56.1170 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2022-12-11 17:15:24.9637 Info Message Template Auto Format enabled
+2022-12-11 17:15:25.0549 Debug ScanAssembly('NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2022-12-11 17:15:25.5542 Debug Setting 'NLog.Targets.FileTarget.name' to 'logfile'
+2022-12-11 17:15:25.5701 Debug Setting 'NLog.Targets.FileTarget.fileName' to 'D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\${shortdate}_logfile.txt'
+2022-12-11 17:15:25.6216 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:15:25.6216 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-12-11 17:15:25.6332 Debug Setting 'NLog.Targets.FileTarget.layout' to '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2022-12-11 17:15:25.6332 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:15:25.6332 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-12-11 17:15:25.6332 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:15:25.6332 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-12-11 17:15:25.6332 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:15:25.6332 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2022-12-11 17:15:25.6332 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:15:25.6332 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-12-11 17:15:25.6505 Debug Adding target FileTarget(Name=logfile)
+2022-12-11 17:15:25.6505 Info Registered target FileTarget(Name=logfile)
+2022-12-11 17:15:25.6505 Trace ParseRulesElement
+2022-12-11 17:15:25.6758 Debug Watching file-filter 'nlog.config' in directory: D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI
+2022-12-11 17:15:25.6758 Debug --- NLog configuration dump ---
+2022-12-11 17:15:25.6758 Debug Targets:
+2022-12-11 17:15:25.6816 Debug FileTarget(Name=logfile)
+2022-12-11 17:15:25.6816 Debug Rules:
+2022-12-11 17:15:25.6816 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2022-12-11 17:15:25.6816 Debug --- End of NLog configuration dump ---
+2022-12-11 17:15:25.6816 Trace FindReachableObject<System.Object>:
+2022-12-11 17:15:25.6816 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2022-12-11 17:15:25.6816 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic
+2022-12-11 17:15:25.6965 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-12-11 17:15:25.6965 Trace   Scanning Property FileName 'D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-12-11 17:15:25.6965 Trace   Scanning SimpleLayout 'D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\${shortdate}_logfile.txt'
+2022-12-11 17:15:25.6965 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-12-11 17:15:25.6965 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.6965 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-12-11 17:15:25.6965 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.6965 Trace   Scanning Property LineEnding 'Default' NLog.Targets
+2022-12-11 17:15:25.6965 Trace   Scanning Property Layout '${longdate}|${level:uppercase=true}|${logger}|${message}' NLog.Layouts
+2022-12-11 17:15:25.6965 Trace   Scanning SimpleLayout '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2022-12-11 17:15:25.6965 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-12-11 17:15:25.6965 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-12-11 17:15:25.6965 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.6965 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-12-11 17:15:25.6965 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.6965 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2022-12-11 17:15:25.6965 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.6965 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-12-11 17:15:25.7115 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic
+2022-12-11 17:15:25.7115 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic
+2022-12-11 17:15:25.7115 Info Validating config: TargetNames=logfile, ConfigItems=14, FilePath=D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\nlog.config
+2022-12-11 17:15:25.7334 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2022-12-11 17:15:25.7539 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2022-12-11 17:15:25.7539 Trace Initializing Layout Renderer: ${message}
+2022-12-11 17:15:25.7594 Trace Initializing Layout Renderer: ${literal}
+2022-12-11 17:15:25.7594 Trace Initializing Layout Renderer: ${loggername}
+2022-12-11 17:15:25.7594 Trace Initializing Layout Renderer: ${literal}
+2022-12-11 17:15:25.7594 Trace Initializing Layout Renderer: ${level}
+2022-12-11 17:15:25.7594 Trace Initializing Layout Renderer: ${literal}
+2022-12-11 17:15:25.7594 Trace Initializing Layout Renderer: ${longdate}
+2022-12-11 17:15:25.7594 Trace Initializing ${longdate}|${level:uppercase=true}|${logger}|${message}
+2022-12-11 17:15:25.7594 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:15:25.7736 Trace Scanning SimpleLayout '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2022-12-11 17:15:25.7736 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-12-11 17:15:25.7736 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2022-12-11 17:15:25.7736 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.7736 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2022-12-11 17:15:25.7736 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.7736 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2022-12-11 17:15:25.7736 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.7736 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2022-12-11 17:15:25.7736 Trace Initializing Layout Renderer: ${literal}
+2022-12-11 17:15:25.7736 Trace Initializing Layout Renderer: ${shortdate}
+2022-12-11 17:15:25.7736 Trace Initializing Layout Renderer: ${literal}
+2022-12-11 17:15:25.7736 Trace Initializing D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\${shortdate}_logfile.txt
+2022-12-11 17:15:25.7736 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2022-12-11 17:15:25.7893 Trace Scanning SimpleLayout 'D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\${shortdate}_logfile.txt'
+2022-12-11 17:15:25.7893 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic
+2022-12-11 17:15:25.7893 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.7893 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2022-12-11 17:15:25.7893 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2022-12-11 17:15:25.7893 Trace Initializing FileTarget(Name=logfile)
+2022-12-11 17:15:25.7893 Trace FindReachableObject<NLog.Layouts.Layout>:
+2022-12-11 17:15:25.7893 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2022-12-11 17:15:25.7893 Trace  Scanning Property FileName 'D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\${shortdate}_logfile.txt' NLog.Layouts
+2022-12-11 17:15:25.7893 Trace  Scanning SimpleLayout 'D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\${shortdate}_logfile.txt'
+2022-12-11 17:15:25.7893 Trace  Scanning Property LineEnding 'Default' NLog.Targets
+2022-12-11 17:15:25.7893 Trace  Scanning Property Layout '${longdate}|${level:uppercase=true}|${logger}|${message}' NLog.Layouts
+2022-12-11 17:15:25.7893 Trace  Scanning SimpleLayout '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2022-12-11 17:15:25.7893 Trace FileTarget(Name=logfile) has 2 layouts
+2022-12-11 17:15:25.8050 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2022-12-11 17:15:41.7390 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2022-12-11 17:15:41.7390 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2022-12-11 17:15:41.7423 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2022-12-11 17:15:41.7423 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2022-12-11 17:15:41.7423 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2022-12-11 17:15:41.7423 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2022-12-11 17:15:41.8349 Debug FileTarget(Name=logfile): Preparing for new file: 'D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\2022-12-11_logfile.txt'
+2022-12-11 17:15:41.8464 Debug FileTarget(Name=logfile): Creating file appender: 'D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\2022-12-11_logfile.txt'
+2022-12-11 17:15:41.8537 Trace FileTarget(Name=logfile): Opening D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\2022-12-11_logfile.txt with allowFileSharedWriting=False
+2022-12-11 17:15:41.8537 Debug FileTarget(Name=logfile): DirectoryNotFoundException - Attempting to create directory for FileName: D:\Source\AzureDevOps\HumanResourceAPI\HumanResourceAPI\logs\2022-12-11_logfile.txt

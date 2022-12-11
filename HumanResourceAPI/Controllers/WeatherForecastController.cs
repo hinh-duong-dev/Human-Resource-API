@@ -1,3 +1,4 @@
+using HumanResourceAPI.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HumanResourceAPI.Controllers
@@ -11,9 +12,9 @@ namespace HumanResourceAPI.Controllers
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILoggerManager _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILoggerManager logger)
         {
             _logger = logger;
         }
@@ -21,6 +22,12 @@ namespace HumanResourceAPI.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogDebug("This is debug from WeatherController");
+            _logger.LogError("This is error from WeatherController");
+            _logger.LogInfo("This is info from WeatherController");
+            _logger.LogWarn("This is warn from WeatherController");
+
+
             return Enumerable.Range(1, 4).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
