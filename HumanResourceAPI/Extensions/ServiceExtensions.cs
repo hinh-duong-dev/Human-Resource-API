@@ -1,5 +1,7 @@
-﻿using HumanResourceAPI.Infrastructure;
+﻿using Entities;
+using HumanResourceAPI.Infrastructure;
 using LoggerService;
+using Microsoft.EntityFrameworkCore;
 
 namespace HumanResourceAPI.Extensions
 {
@@ -24,5 +26,10 @@ namespace HumanResourceAPI.Extensions
 
         public static void ConfigureLoggingService(this IServiceCollection services) =>
             services.AddScoped<ILoggerManager, LoggerManager>();
+
+        public static void ConfigureSqlContext(this IServiceCollection services,
+            IConfiguration configuration) =>
+            services.AddDbContext<AppDbContext>(opts =>
+                opts.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
     }
 }
