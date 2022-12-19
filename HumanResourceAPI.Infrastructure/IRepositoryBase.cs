@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 
 namespace HumanResourceAPI.Infrastructure
 {
@@ -8,13 +9,19 @@ namespace HumanResourceAPI.Infrastructure
 
         Task<T> FindByIdAsync(K id, params Expression<Func<T, object>>[] includeProperties);
 
-        Task<T> FindSingle(Expression<Func<T, bool>>[] predicate, params Expression<Func<T, object>>[] includeProperties);
+        T FindSingle(bool trackChange, Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
-        Task<T> FindSingleAsync(Expression<Func<T, bool>>[] predicate, params Expression<Func<T, object>>[] includeProperties);
+        Task<T> FindSingleAsync(bool trackChange, Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 
-        IQueryable<T> FindAll(params Expression<Func<T, object>>[] includeProperties);
+        IQueryable<T> FindAll(bool trackChange, params Expression<Func<T, object>>[] includeProperties);
 
-        IQueryable<T> FindAll(Expression<Func<T, bool>>[] predicate, params Expression<Func<T, object>>[] includeProperties);
+        IQueryable<T> FindAll(bool trackChange, Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
+
+        void Create(T entity);
+
+        void Update(T entity);
+
+        void Delete(T entity);
 
     }
 }

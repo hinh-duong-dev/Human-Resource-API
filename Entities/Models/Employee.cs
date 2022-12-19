@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
-    public class Employee
+    public class Employee : DomainEntity<Guid>
     {
-        public Guid Id { get; set; }
-
         [Required(ErrorMessage = "First Name is required.")]
         [MaxLength(20, ErrorMessage = "Maximum length for the First Name is 20 charaters.")]
         public string FirstName { get; set; }
