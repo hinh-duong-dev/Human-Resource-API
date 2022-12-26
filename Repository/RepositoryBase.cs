@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Repository
 {
     public class RepositoryBase<TEntity, K> : IRepositoryBase<TEntity, K>
-        where TEntity : DomainEntity<TEntity>
+        where TEntity : DomainEntity<K>
     {
         private readonly AppDbContext _context;
 
