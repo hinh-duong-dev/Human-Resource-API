@@ -1,5 +1,6 @@
 ﻿using Entities;
 using HumanResourceAPI.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,11 @@ namespace Repository
 
                 return _employeeRepository;
             }
+        }
+
+        public Task SaveChangesAsync()
+        {
+            return _dbContext.SaveChangesAsync();
         }
     }
 }

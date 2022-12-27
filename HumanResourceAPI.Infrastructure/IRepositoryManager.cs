@@ -5,5 +5,7 @@
         ICompanyRepository Company { get; }
 
         IEmployeeRepository Employee { get; }
+
+        Task SaveChangesAsync();
     }
 }

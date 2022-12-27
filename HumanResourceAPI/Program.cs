@@ -14,7 +14,14 @@ builder.Services.ConfigureIISIntergration();
 builder.Services.ConfigureLoggingService();
 builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.ConfigureRepository();
-builder.Services.AddControllers();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddControllers(config => { 
+    config.RespectBrowserAcceptHeader = true;
+    config.ReturnHttpNotAcceptable = true;
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
