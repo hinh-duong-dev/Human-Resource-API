@@ -14,13 +14,13 @@ namespace Repository
         
         }
 
-        public async Task<IEnumerable<Company>> GetCompaniesAsync(CompanyParameters companyParameters, bool trackChange)
+        public async Task<PagedList<Company>> GetCompaniesAsync(CompanyParameters companyParameters, bool trackChange)
         {
-            return await FindAll(trackChange)
+            var companies = await FindAll(trackChange)
                 .OrderBy(c => c.Name)
-                .Skip((companyParameters.PageNumber - 1) * companyParameters.PageSize)
-                .Take(companyParameters.PageSize)
                 .ToListAsync();
+
+            return PagedList<Company>.ToPagedList(companies, companyParameters.PageNumber, companyParameters.PageSize);
         }
     }
 }
