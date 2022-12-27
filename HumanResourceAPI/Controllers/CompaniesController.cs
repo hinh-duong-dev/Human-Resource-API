@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using Azure;
 using Entities.DTOs;
 using Entities.Models;
 using HumanResourceAPI.Infrastructure;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HumanResourceAPI.Controllers
@@ -104,7 +106,7 @@ namespace HumanResourceAPI.Controllers
             return NoContent();
         }
 
-        [HttpPut(template: "{id}", Name = RouteNames.UpdateCompany)]
+        [HttpPut(template:"{id}", Name = RouteNames.UpdateCompany)]
         public async Task<IActionResult> UpdateCompany(Guid id, [FromBody] CompanyUpdatingDto company)
         {
             if (company == null)
@@ -127,6 +129,41 @@ namespace HumanResourceAPI.Controllers
             }
 
             _mapper.Map(company, companyEntity);
+            await _repository.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPatch(template:"{id}")]
+        public async Task<IActionResult> PartiallyUpdateCompany(Guid id, [FromBody] JsonPatchDocument<CompanyUpdatingDto> patchDoc)
+        {
+            if (patchDoc == null)
+            {
+                _logger.LogError($"{nameof(patchDoc)} object sent form client is null");
+                return BadRequest($"{nameof(patchDoc)} is null");
+            }
+
+            var companyEntity = await _repository.Company.FindByIdAsync(id);
+            if (companyEntity == null)
+            {
+                _logger.LogInfo($"Company with id {id} doesn't exist in the database.");
+                return NotFound();
+            }
+
+            var companyToPatch = _mapper.Map<CompanyUpdatingDto>(companyEntity);
+
+            TryValidateModel(companyToPatch);
+
+            if (!ModelState.IsValid)
+            {
+                _logger.LogError($"Invalid model state for the {nameof(patchDoc)} document");
+                return UnprocessableEntity(ModelState);
+            }
+
+            patchDoc.ApplyTo(companyToPatch);
+
+            _mapper.Map(companyToPatch, companyEntity);
+
             await _repository.SaveChangesAsync();
 
             return NoContent();
