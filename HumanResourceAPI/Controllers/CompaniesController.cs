@@ -67,8 +67,14 @@ namespace HumanResourceAPI.Controllers
         {
             if (company == null)
             {
-                _logger.LogError($"CompanyCreationDto object sent from client is null");
-                return BadRequest("CompanyCreationDto is null");
+                _logger.LogError($"{nameof(CompanyCreationDto)} object sent from client is null");
+                return BadRequest($"{nameof(CompanyCreationDto)} is null");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                _logger.LogError($"Invalid model state for the {nameof(CompanyCreationDto)} object");
+                return UnprocessableEntity(ModelState);
             }
 
             var companyEntity = _mapper.Map<Company>(company);
@@ -103,13 +109,13 @@ namespace HumanResourceAPI.Controllers
         {
             if (company == null)
             {
-                _logger.LogError($"CompanyUpdatingDto object sent from client is null");
-                return BadRequest("CompanyUpdatingDto is null");
+                _logger.LogError($"{nameof(CompanyUpdatingDto)} object sent from client is null");
+                return BadRequest($"{nameof(CompanyUpdatingDto)} is null");
             }
 
             if (!ModelState.IsValid)
             {
-                _logger.LogError("Invalid model state for the CompanyUpdatingDto object");
+                _logger.LogError($"Invalid model state for the {nameof(CompanyUpdatingDto)} object");
                 return UnprocessableEntity(ModelState);
             }
 

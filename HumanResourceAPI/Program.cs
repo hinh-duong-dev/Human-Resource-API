@@ -1,5 +1,6 @@
 using HumanResourceAPI.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Mvc;
 using NLog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,10 @@ builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.ConfigureRepository();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+    options.SuppressModelStateInvalidFilter = true
+); ;
 
 builder.Services.AddControllers(config => { 
     config.RespectBrowserAcceptHeader = true;
