@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using Entities.DTOs;
 using Entities.Models;
+using Entities.RequestFeatures;
 using HumanResourceAPI.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace HumanResourceAPI.Controllers
 {
@@ -101,6 +103,30 @@ namespace HumanResourceAPI.Controllers
             var employee = _mapper.Map<EmployeeDto>(employeeDb);
 
             return Ok(employee);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetEmployeeForCompany(Guid companyId, [FromBody]EmployeeParameters employeeParameters)
+        {
+            if (!employeeParameters.ValidAgeRange)
+            { 
+               return BadRequest("Max age can't be less than min age");
+            }
+
+            var company = await _repository.Company.FindByIdAsync(companyId);
+            if (company == null) 
+            {
+                _logger.LogInfo($"Company with id {companyId} doesn't exist in the database");
+                return NotFound();
+            }
+
+            var employeesFromDb = await _repository.Employee.GetEmployeeAsync(companyId, employeeParameters, trackChange: false);
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(employeesFromDb.MetaData));
+
+            var employeesDto = _mapper.Map<IEnumerable<Employee>>(employeesFromDb);
+
+            return Ok(employeesDto);
         }
     }
 }
