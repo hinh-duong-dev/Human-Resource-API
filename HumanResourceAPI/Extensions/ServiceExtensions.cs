@@ -7,6 +7,12 @@ using Microsoft.EntityFrameworkCore;
 using Repository;
 using Microsoft.OpenApi.Models;
 using HumanResourceAPI.Controllers;
+using Entities.Models;
+using Microsoft.AspNetCore.Identity;
+using System.Data;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace HumanResourceAPI.Extensions
 {
@@ -71,6 +77,50 @@ namespace HumanResourceAPI.Extensions
                 opt.Conventions.Controller<CompaniesController>().HasApiVersion(new ApiVersion(1,0));
                 opt.Conventions.Controller<CompaniesV2Controller>().HasApiVersion(new ApiVersion(2, 0));
             });
-         
+
+        public static void ConfigureIdentity(this IServiceCollection services)
+        {
+            var buider = services.AddIdentityCore<User>(o => 
+            {
+                o.Password.RequireDigit = true;
+                o.Password.RequireLowercase = false;
+                o.Password.RequireUppercase = false;
+                o.Password.RequireNonAlphanumeric = false;
+                o.Password.RequiredLength = 8;
+                o.User.RequireUniqueEmail = true;         
+            });
+
+            var builder2 = new IdentityBuilder(buider.UserType, typeof(IdentityRole), buider.Services);
+
+            builder2.AddEntityFrameworkStores<AppDbContext>()
+                 .AddDefaultTokenProviders();
+        }
+
+        public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
+        {
+            var jwtSettings = configuration.GetSection("JwtSettings");
+            var secretKey = jwtSettings.GetSection("secretKey").Value;
+
+            services.AddAuthentication(opt => 
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme= JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(opt =>
+                {
+                    opt.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+
+                        ValidIssuer = jwtSettings.GetSection("validIssuer").Value,
+                        ValidAudience = jwtSettings.GetSection("validAudience").Value,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                    };
+                });
+        
+        }
     }
 }

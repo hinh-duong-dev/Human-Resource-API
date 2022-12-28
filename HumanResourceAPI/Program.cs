@@ -1,4 +1,6 @@
 using HumanResourceAPI.Extensions;
+using HumanResourceAPI.Infrastructure;
+using HumanResourceAPI.Utility;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using NLog;
@@ -31,6 +33,10 @@ builder.Services.AddControllers(config => {
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.ConfigureSwagger();
 builder.Services.ConfigureVersioning();
+//builder.Services.AddAuthentication();
+builder.Services.ConfigureJWT(builder.Configuration);
+builder.Services.ConfigureIdentity();
+builder.Services.AddScoped<IAuthenticationManager, AuthenticationManager>();
 
 var app = builder.Build();
 
@@ -57,6 +63,9 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
    ForwardedHeaders = ForwardedHeaders.All
 });
 
+app.UseRouting();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
