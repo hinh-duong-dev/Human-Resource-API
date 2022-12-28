@@ -18,7 +18,7 @@ namespace Repository
             var employees = await FindAll(trackChange, e => e.Company.Equals(companyId))
                     .FilterEmployees(employeeParameters.MinAge, employeeParameters.MaxAge)
                     .Search(employeeParameters.SearchTerm)
-                    .OrderBy(e => e.FirstName)
+                    .Sort(employeeParameters.OrderBy)
                     .ToListAsync();
 
             return PagedList<Employee>
