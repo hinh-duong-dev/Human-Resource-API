@@ -20,7 +20,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
     options.SuppressModelStateInvalidFilter = true
-); ;
+);
 
 builder.Services.AddControllers(config => { 
     config.RespectBrowserAcceptHeader = true;
@@ -29,7 +29,8 @@ builder.Services.AddControllers(config => {
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.ConfigureSwagger();
+builder.Services.ConfigureVersioning();
 
 var app = builder.Build();
 
@@ -37,7 +38,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    //app.UseSwaggerUI();
+    app.UseSwaggerUI(s =>
+    {
+        s.SwaggerEndpoint("v1/swagger.json", "Human Resource API v1");
+        s.SwaggerEndpoint("v2/swagger.json", "Human Resource API v2");
+    });
 }
 
 app.UseHttpsRedirection();

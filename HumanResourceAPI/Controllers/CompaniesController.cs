@@ -9,8 +9,10 @@ using Newtonsoft.Json;
 
 namespace HumanResourceAPI.Controllers
 {
+    //[ApiVersion("1.0")]
     [Route("api/companies")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class CompaniesController : ControllerBase
     {
         private readonly IRepositoryManager _repository;
